@@ -998,1434 +998,317 @@
             border-radius: 2px;
             margin-bottom: 15px;
             display: inline-block;
-            box-shadow: 0 4px 10px rgba(231, 34, 46, 0.3);
         }
 
-        .red-tag {
-            background: rgba(231, 34, 46, 0.1);
-            border: 1px solid var(--m-red);
+        .btn-tag:hover {
+            background: var(--bmw-blue);
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(28, 105, 212, 0.5);
+        }
+
+        .spec-value:hover {
             color: var(--m-red);
         }
 
-        .card:hover .red-tag {
-            background: var(--m-red);
-            color: white;
-            box-shadow: 0 0 15px var(--m-red);
-        }
-
-        /* --- High-Tech Digital Laboratory Section (Tech-History) --- */
-        .tech-history-section {
-            padding: 180px 5%;
-            background: radial-gradient(circle at center, #050b14 0%, #000000 100%);
-            position: relative;
-            overflow: hidden;
-            border-top: 1px solid rgba(28, 105, 212, 0.2);
-            perspective: 1000px;
-        }
-
-        /* Animated Technical Grid Background */
-        .tech-history-section::before {
-            content: "";
-            position: absolute;
-            inset: -50%;
-            background-image:
-                linear-gradient(rgba(28, 105, 212, 0.08) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(28, 105, 212, 0.08) 1px, transparent 1px);
-            background-size: 60px 60px;
-            z-index: 0;
-            transform: rotateX(60deg) translateY(-100px) translateZ(-200px);
-            animation: gridMove 20s linear infinite;
-            -webkit-mask-image: radial-gradient(circle at 50% 50%, black 10%, transparent 70%);
-            mask-image: radial-gradient(circle at 50% 50%, black 10%, transparent 70%);
-        }
-
-        @keyframes gridMove {
-            0% {
-                transform: rotateX(60deg) translateY(0) translateZ(-200px);
-            }
-
-            100% {
-                transform: rotateX(60deg) translateY(60px) translateZ(-200px);
-            }
-        }
-
-        .tech-history-section h2 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-            background: linear-gradient(180deg, #ffffff 0%, rgba(28, 105, 212, 0.8) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 100px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            text-shadow: 0 0 40px rgba(28, 105, 212, 0.3);
-        }
-
-        .tech-history-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 50px;
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .tech-card {
-            background: linear-gradient(145deg, rgba(16, 22, 34, 0.7) 0%, rgba(5, 8, 12, 0.9) 100%);
-            backdrop-filter: blur(25px);
-            padding: 60px 40px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
-            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            transform-style: preserve-3d;
-            z-index: 1;
-        }
-
-        /* Glowing Frame Effect on Hover */
-        .tech-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: 12px;
-            padding: 2px;
-            background: linear-gradient(135deg, transparent, transparent, var(--bmw-blue), transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: 0.5s;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        /* Scanning Line */
-        .tech-card::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(to right, transparent, rgba(28, 105, 212, 0.1), transparent);
-            transform: skewX(-20deg);
-            transition: 0.7s;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .tech-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(28, 105, 212, 0.15);
-            background: linear-gradient(145deg, rgba(20, 30, 45, 0.8) 0%, rgba(5, 8, 12, 0.95) 100%);
-        }
-
-        .tech-card:hover::before {
-            opacity: 1;
-        }
-
-        .tech-card:hover::after {
-            left: 200%;
-        }
-
-        .tech-icon {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 5px;
-            color: var(--bmw-blue);
-            filter: drop-shadow(0 0 12px rgba(28, 105, 212, 0.8));
-            opacity: 0.8;
-            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-origin: center;
-        }
-
-        .tech-card:hover .tech-icon {
-            opacity: 1;
-            transform: scale(1.2) translateY(-5px);
-            filter: drop-shadow(0 0 20px var(--bmw-blue));
-        }
-
-        .tech-card h3 {
-            font-size: 1.6rem;
-            font-weight: 900;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 0;
-            transition: 0.4s;
-            position: relative;
-        }
-
-        .tech-card:hover h3 {
-            color: var(--bmw-blue);
-            text-shadow: 0 0 10px rgba(28, 105, 212, 0.5);
-        }
-
-        .tech-card p {
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.8;
-            font-weight: 300;
-            font-size: 0.95rem;
-            margin: 0;
-            flex-grow: 1;
-        }
-
-        .tech-btn {
-            margin-top: auto;
-            align-self: flex-start;
-            font-size: 11px;
-            font-weight: 900;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--bmw-blue);
-            cursor: pointer;
-            padding: 12px 25px;
-            border: 1px solid rgba(28, 105, 212, 0.3);
-            border-radius: 4px;
-            position: relative;
-            transition: color 0.4s, border-color 0.4s, box-shadow 0.4s;
-            background: rgba(28, 105, 212, 0.05);
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .tech-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bmw-blue);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
-            z-index: -1;
-        }
-
-        .tech-card:hover .tech-btn {
-            color: #fff;
-            border-color: var(--bmw-blue);
-            box-shadow: 0 0 15px rgba(28, 105, 212, 0.4);
-        }
-
-        .tech-card:hover .tech-btn::before {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        /* --- High-Tech Circuit Stream Timeline --- */
-        .timeline-section {
-            padding: 200px 5%;
-            background: #000;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Abstract Background Grid */
-        .timeline-section::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(circle at 50% 50%, rgba(28, 105, 212, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-            opacity: 0.3;
-        }
-
-        .timeline-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(-50%);
-        }
-
-        .timeline-energy-path {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            width: 1px;
-            height: 0;
-            background: linear-gradient(to bottom, var(--bmw-blue), var(--m-red));
-            box-shadow: 0 0 15px var(--bmw-blue), 0 0 30px var(--bmw-blue);
-            transform: translateX(-50%);
-            z-index: 1;
-            transition: height 0.2s ease-out;
-        }
-
-        .timeline-item {
-            position: relative;
-            width: 100%;
-            margin-bottom: 200px;
-            display: flex;
-            justify-content: flex-start;
-            padding-left: 50%;
-            /* Content on the right */
-            transition: 0.8s;
-        }
-
-        /* Branching Circuit Line */
-        .timeline-item::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: 40px;
-            width: 100px;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.1);
-            transform-origin: left;
-            transition: 0.6s;
-        }
-
-        .timeline-item.active::after {
-            background: var(--bmw-blue);
-            box-shadow: 0 0 10px var(--bmw-blue);
-            width: 120px;
-        }
-
-        .timeline-node {
-            position: absolute;
-            left: 50%;
-            top: 36px;
-            width: 8px;
-            height: 8px;
-            background: #000;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            transition: 0.5s;
-        }
-
-        .timeline-item.active .timeline-node {
-            background: var(--bmw-blue);
-            box-shadow: 0 0 20px var(--bmw-blue);
-            transform: translateX(-50%) scale(1.5);
-            border-color: #fff;
-        }
-
-        .timeline-content {
-            margin-left: 120px;
-            padding: 40px;
-            background: rgba(10, 10, 10, 0.8);
-            border-left: 2px solid rgba(255, 255, 255, 0.05);
-            position: relative;
-            transition: 0.6s;
-        }
-
-        .timeline-item.active .timeline-content {
-            border-left-color: var(--bmw-blue);
-            background: rgba(28, 105, 212, 0.05);
-            transform: translateX(20px);
-        }
-
-        .timeline-year {
-            font-size: 8rem;
-            font-weight: 950;
-            color: rgba(255, 255, 255, 0.03);
-            position: absolute;
-            top: -60px;
-            left: -150px;
-            font-family: 'Montserrat', sans-serif;
-            transition: 0.8s;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .timeline-item.active .timeline-year {
-            color: var(--bmw-blue);
-            opacity: 0.1;
-            left: -120px;
-        }
-
-        .era-marker {
-            font-size: 0.55rem;
-            letter-spacing: 12px;
-            color: var(--bmw-blue);
-            font-weight: 950;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .timeline-content h3 {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: #fff;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .timeline-content p {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.95rem;
-            line-height: 1.8;
-            font-weight: 300;
-            max-width: 400px;
-        }
-
-        /* Navigation ID for and timeline item */
-        .item-count {
-            position: absolute;
-            top: 40px;
-            left: 50%;
-            transform: translateX(-180%);
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.1);
-            font-weight: 900;
-            transition: 0.5s;
-        }
-
-        .timeline-item.active .item-count {
-            color: var(--bmw-blue);
-            transform: translateX(-200%);
-        }
-
-        /* --- Dealers Section --- */
-        .dealers-section {
-            padding: 150px 5%;
-            background: #050505;
-            text-align: center;
-        }
-
-        .dealers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
-            margin: 80px auto 0;
-        }
-
-        .dealer-card {
-            background: #111;
-            padding: 50px 30px;
-            border-radius: 15px;
-            border: 1px solid #222;
-            transition: 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .dealer-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            transition: 0.4s;
-            opacity: 0.8;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Germany: Black / Red / Gold */
-        .dealer-card.flag-germany::before {
-            background: linear-gradient(90deg, #000 33.3%, #DD0000 33.3%, #DD0000 66.6%, #FFCE00 66.6%);
-        }
-
-        /* Egypt: Red / White / Black */
-        .dealer-card.flag-egypt::before {
-            background: linear-gradient(90deg, #CE1126 33.3%, #fff 33.3%, #fff 66.6%, #000 66.6%);
-        }
-
-        /* Global Network: spectrum gradient */
-        .dealer-card.flag-global::before {
-            background: linear-gradient(90deg, #1c69d4, #00c8ff, #00e676, #ffea00, #e7222e);
-        }
-
-        .dealer-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            border-color: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
-        }
-
-        .dealer-card:hover::before {
-            opacity: 1;
-            height: 6px;
-        }
-
-        .dealer-card.flag-germany:hover::before {
-            box-shadow: 0 0 15px rgba(221, 0, 0, 0.4);
-        }
-
-        .dealer-card.flag-egypt:hover::before {
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-        }
-
-        .dealer-card.flag-global:hover::before {
-            box-shadow: 0 0 20px rgba(28, 105, 212, 0.5);
-        }
-
-        .dealer-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .dealer-card p {
-            color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-
-        .dealer-btn {
-            font-size: 10px;
-            font-weight: 900;
-            color: var(--bmw-blue);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border: 1px solid var(--bmw-blue);
-            padding: 10px 20px;
-            transition: 0.3s;
-            display: inline-block;
-        }
-
-        .dealer-btn:hover {
-            background: var(--bmw-blue);
-            color: white;
-        }
-
-        /* --- Premium High-Tech Footer --- */
+        /* Footer Redesign */
         footer {
-            background: #000;
-            padding: 120px 5% 60px;
-            border-top: 1px solid rgba(28, 105, 212, 0.15);
-            position: relative;
-            overflow: hidden;
+            padding: 60px 5%;
+            background: #050505;
+            border-top: 1px solid rgba(28, 105, 212, 0.2);
+            text-align: center;
         }
 
-        footer::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(circle at 10% 90%, rgba(28, 105, 212, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 90% 10%, rgba(231, 34, 46, 0.03) 0%, transparent 40%);
-            pointer-events: none;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 80px;
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .footer-brand p {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.95rem;
-            line-height: 1.8;
-            margin-top: 30px;
-            max-width: 400px;
-            font-weight: 300;
-        }
-
-        .footer-column h4 {
-            font-size: 0.75rem;
-            letter-spacing: 4px;
-            color: #fff;
-            margin-bottom: 40px;
-            font-weight: 900;
-            text-transform: uppercase;
-            position: relative;
-            display: inline-block;
-        }
-
-        .footer-column h4::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 30px;
-            height: 2px;
-            background: var(--bmw-blue);
-            box-shadow: 0 0 10px var(--bmw-blue);
-        }
-
-        .footer-column ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 18px;
-        }
-
-        .footer-column ul li a {
-            color: rgba(255, 255, 255, 0.5);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        footer p {
+            color: rgba(255, 255, 255, 0.3);
             font-size: 0.85rem;
-            letter-spacing: 1px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .footer-column ul li a::before {
-            content: '>';
-            margin-right: 10px;
-            font-size: 10px;
-            color: var(--bmw-blue);
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: all 0.4s;
-        }
-
-        .footer-column ul li a:hover {
-            color: #fff;
-            padding-left: 5px;
-        }
-
-        .footer-column ul li a:hover::before {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .social-links {
-            display: flex;
-            flex-direction: row;
-            /* Horizontal for icons looks better */
-            gap: 20px;
-        }
-
-        .social-links a {
-            font-size: 0;
-            /* Hide text */
-            color: rgba(255, 255, 255, 0.4);
-            transition: all 0.4s;
-            display: flex;
-            align-items: center;
-            width: 35px;
-            height: 35px;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 50%;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .social-links a svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-        }
-
-        .social-links a:hover {
-            color: var(--bmw-blue);
-            transform: translateY(-5px);
-            background: rgba(28, 105, 212, 0.1);
-            border-color: var(--bmw-blue);
-            box-shadow: 0 0 15px rgba(28, 105, 212, 0.4);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 100px;
-            padding-top: 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: rgba(255, 255, 255, 0.2);
-            font-size: 0.75rem;
             letter-spacing: 2px;
-            text-transform: uppercase;
         }
 
-        .legal-links span {
-            margin-left: 30px;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .legal-links span:hover {
-            color: #fff;
-        }
-
-        @media (max-width: 992px) {
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .footer-brand {
-                grid-column: span 2;
-            }
-
-            .timeline-line {
-                left: 20px;
-            }
-
-            .timeline-item {
-                justify-content: flex-start;
-                padding-left: 50px;
-                padding-right: 0;
-            }
-
-            .timeline-item:nth-child(even) {
-                padding-left: 50px;
-            }
-
-            .timeline-node {
-                left: 20px;
-            }
+        footer p span {
+            color: var(--bmw-blue);
+            font-weight: 900;
         }
     </style>
 </head>
 
 <body>
-    <!-- Custom Technical Cursor -->
+    <!-- Custom Cursor -->
     <div id="custom-cursor"></div>
 
+    <!-- Navbar -->
     <div class="navbar-wrapper">
-        <nav class="navbar">
+        <div class="navbar">
             <div class="nav-links-left">
-                <a href="#series">Series</a>
-                <a href="#legacy">M Performance</a>
+                <a href="#models">MODELS</a>
+                <a href="#tech">TECHNOLOGY</a>
             </div>
             <div class="logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg" alt="BMW">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/1024px-BMW.svg.png" alt="BMW Logo">
             </div>
             <div class="nav-links-right">
-                <a href="#innovation">Innovation</a>
-                <a href="#">Network</a>
-                <a href="#series" style="text-decoration: none; margin-left: 20px;">
-                    <button class="contact-btn">EXPLORE</button>
-                </a>
+                <a href="#gallery">GALLERY</a>
+                <button class="contact-btn">CONTACT</button>
             </div>
-        </nav>
+        </div>
     </div>
 
+    <!-- Hero Section with Video -->
     <section class="hero-section">
+        <!-- Video Background -->
         <div class="video-container">
-            <video id="hero-video" src="images/BMW_M4.mp4" autoplay muted
-                playsinline></video>
+            <video autoplay muted loop playsinline>
+                <source src="images/BMW_M4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
+
+        <!-- Gradient Overlay -->
+        <div class="gradient-bg"></div>
+
+        <!-- Performance HUD -->
         <div class="performance-hud">
-            <!-- Top Gauge: Speed -->
             <div class="cluster-gauge">
-                <svg class="gauge-frame" viewBox="0 0 180 120">
-                    <path class="path-bg-left" d="M 100 110 L 50 110 L 15 75 L 15 35 L 50 10 L 120 10" />
-                    <path class="path-fill-left" id="speedGaugePath"
-                        d="M 100 110 L 50 110 L 15 75 L 15 35 L 50 10 L 120 10" />
-                    <g class="gauge-ticks">
-                        <line x1="15" y1="35" x2="25" y2="35" />
-                        <line x1="15" y1="75" x2="25" y2="75" />
-                        <line x1="50" y1="110" x2="50" y2="100" />
-                    </g>
+                <svg class="gauge-frame" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Speed Gauge (Left) -->
+                    <path class="path-bg-left" d="M 40 80 A 60 60 0 0 1 160 80"/>
+                    <path class="path-fill-left" d="M 40 80 A 60 60 0 0 1 160 80"/>
+                    <line class="gauge-ticks" x1="40" y1="80" x2="35" y2="80"/>
+                    <line class="gauge-ticks" x1="100" y1="25" x2="100" y2="20"/>
+                    <line class="gauge-ticks" x1="160" y1="80" x2="165" y2="80"/>
+
+                    <!-- Power Gauge (Right) -->
+                    <path class="path-bg-right" d="M 40 80 A 60 60 0 0 0 160 80"/>
+                    <path class="path-fill-right" d="M 40 80 A 60 60 0 0 0 160 80"/>
                 </svg>
                 <div class="gauge-inner-content">
-                    <div class="gauge-val" data-target="305">0</div>
+                    <div class="gauge-val">240</div>
                     <div class="gauge-unit">KM/H</div>
                 </div>
             </div>
-
-            <!-- Center Info -->
             <div class="cluster-center">
-                <div class="gear-display">D<span>7</span></div>
+                <div class="gear-display">P <span>MODE</span></div>
                 <div class="center-stat">
-                    <span class="center-stat-val">SPORT+</span>
-                    <span class="center-stat-label">DRIVE MODE</span>
-                </div>
-                <div class="center-stat" style="margin-top: 8px;">
-                    <span class="center-stat-val" data-target="3.5">0</span>
-                    <span class="center-stat-label">0–100 SEC</span>
+                    <div class="center-stat-val">585<span class="stat-unit">HP</span></div>
+                    <div class="center-stat-label">POWER</div>
                 </div>
             </div>
-
-            <!-- Bottom Gauge: Power -->
-            <div class="cluster-gauge">
-                <svg class="gauge-frame" viewBox="0 0 180 120">
-                    <path class="path-bg-right" d="M 80 110 L 130 110 L 165 75 L 165 35 L 130 10 L 60 10" />
-                    <path class="path-fill-right" id="powerGaugePath"
-                        d="M 80 110 L 130 110 L 165 75 L 165 35 L 130 10 L 60 10" />
-                    <g class="gauge-ticks">
-                        <line x1="165" y1="35" x2="155" y2="35" />
-                        <line x1="165" y1="75" x2="155" y2="75" />
-                        <line x1="130" y1="110" x2="130" y2="100" />
-                    </g>
-                </svg>
-                <div class="gauge-inner-content">
-                    <div class="gauge-val" data-target="373">0</div>
-                    <div class="gauge-unit">KW POWER</div>
-                </div>
+            <div class="hud-status">
+                <span>● SYSTEM ONLINE</span>
             </div>
         </div>
 
+        <!-- Product Info -->
         <div class="product-info">
-            <h3>BMW M4 COMPETITION</h3>
-            <p>2025 Edition</p>
-            <div class="edition-tag">Performance Legacy</div>
+            <h3>PRESENTING</h3>
+            <p>BMW M4</p>
+            <div class="edition-tag">COMPETITION EDITION</div>
         </div>
-        <a href="#" class="cta-button">BUILD YOURS</a>
-        <div class="gradient-bg"></div>
+
+        <!-- CTA Button -->
+        <a href="#" class="cta-button">Explore Now</a>
     </section>
 
-    <section class="series-section" id="series">
-        <div class="series-header" style="text-align: center; margin-bottom: 50px; padding: 0 5%;"
-            data-parallax="-0.15">
-            <h3 style="color: var(--bmw-blue); letter-spacing: 5px; font-size: 0.9rem; text-transform: uppercase;">
-                VERSATILITY & POWER</h3>
-            <h2 style="font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; color: #fff; text-transform: uppercase;">
-                BMW FAMILY</h2>
+    <!-- Series Section -->
+    <section class="series-section" id="models">
+        <div class="series-header">
+            <h2>THE COMPLETE FAMILY</h2>
         </div>
-
         <div class="series-slider">
             <div class="series-grid">
-                <!-- Set 01 (Original) -->
                 <div class="legacy-card">
+                    <img src="https://images.bmwgroup.com/image/upload/w_1600,h_800,q_auto,f_auto/f_auto,q_auto,w_1920/img-20231015-wa0009-p-nzgw8dm0nwq4h5g5fz0c" alt="BMW 3 Series">
                     <div class="card-corner"></div>
-                    <div class="card-number">01</div>
-                    <img src="https://www.bmw.lk/content/dam/bmw/common/all-models/2-series/series-overview/bmw-2-series-overview-page-cp-desktop.jpg"
-                        alt="Sedan">
                     <div class="series-info">
-                        <span class="tag">THE SEDANS</span>
-                        <h3>The Driving Standard</h3>
-                        <div class="card-detail">From the agile 3 Series to the executive 7 Series, redefined luxury and
-                            precision for the ultimate driving experience.</div>
+                        <span class="card-number">3</span>
+                        <span class="tag">SEDAN</span>
+                        <h3>3 SERIES</h3>
+                        <div class="card-detail">Premium elegance and performance in a sleek sedan package.</div>
                     </div>
                 </div>
                 <div class="legacy-card">
+                    <img src="https://images.bmwgroup.com/image/upload/w_1600,h_800,q_auto,f_auto/f_auto,q_auto,w_1920/bmw-5-series-sedan-mj-2024-01-header-p-nzgw8dm0nwq4h5g5fz0c" alt="BMW 5 Series">
                     <div class="card-corner"></div>
-                    <div class="card-number">02</div>
-                    <img src="https://www.topgear.com/sites/default/files/2024/05/P90489757_highRes_the-new-bmw-x5-xdriv_0.jpg"
-                        alt="SUV">
                     <div class="series-info">
-                        <span class="tag">BMW X</span>
-                        <h3>Infinite Horizons</h3>
-                        <div class="card-detail">X1 through X7. Master any terrain with intelligent xDrive
-                            all-wheel-drive technology and unparalleled comfort.</div>
+                        <span class="card-number">5</span>
+                        <span class="tag">LUXURY</span>
+                        <h3>5 SERIES</h3>
+                        <div class="card-detail">Ultimate luxury with cutting-edge technology and comfort.</div>
                     </div>
                 </div>
                 <div class="legacy-card">
+                    <img src="https://images.bmwgroup.com/image/upload/w_1600,h_800,q_auto,f_auto/f_auto,q_auto,w_1920/p90478645-highres-bmw-x5-m-2024-p-nzgw8dm0nwq4h5g5fz0c" alt="BMW X5">
                     <div class="card-corner"></div>
-                    <div class="card-number">03</div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/2019_BMW_Z4_M40i_Front.jpg" alt="Z4">
                     <div class="series-info">
-                        <span class="tag">BMW Z</span>
-                        <h3>Open Sky Freedom</h3>
-                        <div class="card-detail">The Z4 delivers an open-top experience with classic sports car
-                            proportions and modern performance engineering.</div>
+                        <span class="card-number">X5</span>
+                        <span class="tag">SUV</span>
+                        <h3>X5 SUV</h3>
+                        <div class="card-detail">Powerful SUV combining luxury with exceptional handling.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="series-grid">
+                <div class="legacy-card">
+                    <img src="https://images.bmwgroup.com/image/upload/w_1600,h_800,q_auto,f_auto/f_auto,q_auto,w_1920/img-20231015-wa0009-p-nzgw8dm0nwq4h5g5fz0c" alt="BMW 3 Series">
+                    <div class="card-corner"></div>
+                    <div class="series-info">
+                        <span class="card-number">3</span>
+                        <span class="tag">SEDAN</span>
+                        <h3>3 SERIES</h3>
+                        <div class="card-detail">Premium elegance and performance in a sleek sedan package.</div>
                     </div>
                 </div>
                 <div class="legacy-card">
+                    <img src="https://images.bmwgroup.com/image/upload/w_1600,h_800,q_auto,f_auto/f_auto,q_auto,w_1920/bmw-5-series-sedan-mj-2024-01-header-p-nzgw8dm0nwq4h5g5fz0c" alt="BMW 5 Series">
                     <div class="card-corner"></div>
-                    <div class="card-number">04</div>
-                    <img src="https://cimg3.ibsrv.net/ibimg/hgm/1920x1080-1/100/679/bmw-3-series_100679155.jpg"
-                        alt="Electric">
                     <div class="series-info">
-                        <span class="tag tag-i">BMW i</span>
-                        <h3>Electric Future</h3>
-                        <div class="card-detail">Sustainable innovation meets performance. Leading the charge with i4,
-                            i5, i7, and iX for a greener tomorrow.</div>
+                        <span class="card-number">5</span>
+                        <span class="tag">LUXURY</span>
+                        <h3>5 SERIES</h3>
+                        <div class="card-detail">Ultimate luxury with cutting-edge technology and comfort.</div>
                     </div>
                 </div>
                 <div class="legacy-card">
+                    <img src="https://images.bmwgroup.com/image/upload/w_1600,h_800,q_auto,f_auto/f_auto,q_auto,w_1920/p90478645-highres-bmw-x5-m-2024-p-nzgw8dm0nwq4h5g5fz0c" alt="BMW X5">
                     <div class="card-corner"></div>
-                    <div class="card-number">05</div>
-                    <img src="images/BMW-M-Cars.jpg" alt="M Power">
                     <div class="series-info">
-                        <span class="tag tag-m">BMW M</span>
-                        <h3>Racing Instinct</h3>
-                        <div class="card-detail">Born on the track. High-performance engineering for those who demand
-                            ultimate power, agility, and speed.</div>
-                    </div>
-                </div>
-                <div class="legacy-card">
-                    <div class="card-corner"></div>
-                    <div class="card-number">06</div>
-                    <img src="https://imgcdn.oto.com.sg/large/gallery/exterior/9/58/bmw-6-series-gran-turismo-front-angle-low-view-321963.jpg"
-                        alt="GT">
-                    <div class="series-info">
-                        <span class="tag">BMW GT</span>
-                        <h3>Grand Touring</h3>
-                        <div class="card-detail">Combining the elegance of a coupe with long-distance comfort and
-                            versatile space for unique journeys.</div>
-                    </div>
-                </div>
-
-                <!-- Set 02 (Identical Duplicate for Seamless Loop) -->
-                <div class="legacy-card">
-                    <div class="card-corner"></div>
-                    <div class="card-number">01</div>
-                    <img src="https://www.bmw.lk/content/dam/bmw/common/all-models/2-series/series-overview/bmw-2-series-overview-page-cp-desktop.jpg"
-                        alt="Sedan">
-                    <div class="series-info">
-                        <span class="tag">THE SEDANS</span>
-                        <h3>The Driving Standard</h3>
-                        <div class="card-detail">From the agile 3 Series to the executive 7 Series, redefined luxury and
-                            precision for the ultimate driving experience.</div>
-                    </div>
-                </div>
-                <div class="legacy-card">
-                    <div class="card-corner"></div>
-                    <div class="card-number">02</div>
-                    <img src="https://www.topgear.com/sites/default/files/2024/05/P90489757_highRes_the-new-bmw-x5-xdriv_0.jpg"
-                        alt="SUV">
-                    <div class="series-info">
-                        <span class="tag">BMW X</span>
-                        <h3>Infinite Horizons</h3>
-                        <div class="card-detail">X1 through X7. Master any terrain with intelligent xDrive
-                            all-wheel-drive technology and unparalleled comfort.</div>
-                    </div>
-                </div>
-                <div class="legacy-card">
-                    <div class="card-corner"></div>
-                    <div class="card-number">03</div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/2019_BMW_Z4_M40i_Front.jpg" alt="Z4">
-                    <div class="series-info">
-                        <span class="tag">BMW Z</span>
-                        <h3>Open Sky Freedom</h3>
-                        <div class="card-detail">The Z4 delivers an open-top experience with classic sports car
-                            proportions and modern performance engineering.</div>
-                    </div>
-                </div>
-                <div class="legacy-card">
-                    <div class="card-corner"></div>
-                    <div class="card-number">04</div>
-                    <img src="https://cimg3.ibsrv.net/ibimg/hgm/1920x1080-1/100/679/bmw-3-series_100679155.jpg"
-                        alt="Electric">
-                    <div class="series-info">
-                        <span class="tag tag-i">BMW i</span>
-                        <h3>Electric Future</h3>
-                        <div class="card-detail">Sustainable innovation meets performance. Leading the charge with i4,
-                            i5, i7, and iX for a greener tomorrow.</div>
-                    </div>
-                </div>
-                <div class="legacy-card">
-                    <div class="card-corner"></div>
-                    <div class="card-number">05</div>
-                    <img src="images/BMW-M-Cars.jpg" alt="M Power">
-                    <div class="series-info">
-                        <span class="tag tag-m">BMW M</span>
-                        <h3>Racing Instinct</h3>
-                        <div class="card-detail">Born on the track. High-performance engineering for those who demand
-                            ultimate power, agility, and speed.</div>
-                    </div>
-                </div>
-                <div class="legacy-card">
-                    <div class="card-corner"></div>
-                    <div class="card-number">06</div>
-                    <img src="https://imgcdn.oto.com.sg/large/gallery/exterior/9/58/bmw-6-series-gran-turismo-front-angle-low-view-321963.jpg"
-                        alt="GT">
-                    <div class="series-info">
-                        <span class="tag">BMW GT</span>
-                        <h3>Grand Touring</h3>
-                        <div class="card-detail">Combining the elegance of a coupe with long-distance comfort and
-                            versatile space for unique journeys.</div>
+                        <span class="card-number">X5</span>
+                        <span class="tag">SUV</span>
+                        <h3>X5 SUV</h3>
+                        <div class="card-detail">Powerful SUV combining luxury with exceptional handling.</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="m-legacy-container" id="legacy">
-            <h2 class="m-legacy-title"><span>BMW PERFORMANCE</span>M Legacy</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="card-img"
-                        style="background-image: url('https://www.autoblog.com/.image/w_3840,q_auto:good,c_limit/MjA5MDg5Mzk2NjkyMjMxNzky/2023-bmw-m8-competition-coupe.jpg?arena_f_auto');">
-                    </div>
-                    <div class="card-body">
-                        <span class="btn-tag">M Power</span>
-                        <h3>M8 Competition</h3>
-                        <p>Forged on the racetrack. A beast with a twin-turbo V8 engine redefined for ultimate
-                            dominance.</p>
-                        <div class="card-specs">
-                            <div class="spec-item">
-                                <span class="spec-label">POWER</span>
-                                <span class="spec-value">625<span>HP</span></span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">0-100</span>
-                                <span class="spec-value">3.2<span>S</span></span>
-                            </div>
+    </section>
+
+    <!-- M Legacy Section -->
+    <section class="m-legacy-container" id="tech">
+        <h2 class="m-legacy-title">
+            <span>PERFORMANCE LEGENDS</span>
+            M SERIES
+        </h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.bmwgroup.com/image/upload/w_1600,h_800,q_auto,f_auto/f_auto,q_auto,w_1920/p90471461-highres-bmw-m440-xdrive-2024-p-nzgw8dm0nwq4h5g5fz0c');"></div>
+                <div class="card-body">
+                    <h3>M440 XDRIVE</h3>
+                    <p>Experience raw power and precision in the ultimate M Series compact.</p>
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">0-100 KM/H</span>
+                            <span class="spec-value">3.9<span>sec</span></span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">MAX POWER</span>
+                            <span class="spec-value">503<span>HP</span></span>
                         </div>
                     </div>
+                    <span class="btn-tag">FEATURED</span>
                 </div>
-                <div class="card">
-                    <div class="card-img"
-                        style="background-image: url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800');">
-                    </div>
-                    <div class="card-body">
-                        <span class="btn-tag">Pure Agility</span>
-                        <h3>M2 Coupe</h3>
-                        <p>Compact size, massive performance. The purist's choice for precision driving and control.</p>
-                        <div class="card-specs">
-                            <div class="spec-item">
-                                <span class="spec-label">POWER</span>
-                                <span class="spec-value">460<span>HP</span></span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">0-100</span>
-                                <span class="spec-value">4.1<span>S</span></span>
-                            </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.bmwgroup.com/image/upload/w_1600,h_800,q_auto,f_auto/f_auto,q_auto,w_1920/p90478639-highres-2024-bmw-m550-xdrive-sedan-11-2024-p-nzgw8dm0nwq4h5g5fz0c');"></div>
+                <div class="card-body">
+                    <h3>M550 XDRIVE</h3>
+                    <p>Ultimate luxury sedan with M Sport technology and blistering performance.</p>
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">0-100 KM/H</span>
+                            <span class="spec-value">3.5<span>sec</span></span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">MAX POWER</span>
+                            <span class="spec-value">625<span>HP</span></span>
                         </div>
                     </div>
+                    <span class="btn-tag">PREMIUM</span>
                 </div>
-                <div class="card">
-                    <div class="card-img"
-                        style="background-image: url('https://images.unsplash.com/photo-1619362280286-f1f8fd5032ed?auto=format&fit=crop&w=800');">
-                    </div>
-                    <div class="card-body">
-                        <span class="btn-tag">Innovation</span>
-                        <h3>BMW XM</h3>
-                        <p>The most powerful M car ever. Hybrid power meets expressive, high-tech command design.</p>
-                        <div class="card-specs">
-                            <div class="spec-item">
-                                <span class="spec-label">POWER</span>
-                                <span class="spec-value">748<span>HP</span></span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">0-100</span>
-                                <span class="spec-value">3.8<span>S</span></span>
-                            </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.bmwgroup.com/image/upload/w_1600,h_800,q_auto,f_auto/f_auto,q_auto,w_1920/p90474922-highres-the-new-bmw-m4-in-phytonic-blue-metallic-p-nzgw8dm0nwq4h5g5fz0c');"></div>
+                <div class="card-body">
+                    <h3>M4 COMPETITION</h3>
+                    <p>The pinnacle of BMW M engineering with legendary performance DNA.</p>
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">0-100 KM/H</span>
+                            <span class="spec-value">3.0<span>sec</span></span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">MAX POWER</span>
+                            <span class="spec-value">625<span>HP</span></span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- --- Technology & History Section --- -->
-    <section class="tech-history-section">
-        <h2>Digital Innovation</h2>
-        <div class="tech-history-grid">
-            <div class="tech-card">
-                <div class="hologram-overlay"></div>
-                <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                </svg>
-                <h3>Advanced Intelligence</h3>
-                <p>BMW integrates cutting-edge tech across every model, from adaptive suspension and xDrive all-wheel
-                    drive, to driver-assist AI and state-of-the-art infotainment components. Designed for performance.
-                </p>
-                <div class="tech-btn">LEARN MORE</div>
-            </div>
-            <div class="tech-card">
-                <div class="hologram-overlay"></div>
-                <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-                <h3>Pure Performance</h3>
-                <p>From racetrack-tuned M models to long-distance GTs, BMW’s engineering delivers power, agility, and
-                    efficiency. Advanced aerodynamics and turbocharged engines create the ultimate drive.</p>
-                <div class="tech-btn">TECHNICAL DATA</div>
-            </div>
-            <div class="tech-card">
-                <div class="hologram-overlay"></div>
-                <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                </svg>
-                <h3>Century of Heritage</h3>
-                <p>With a legacy dating back over 100 years, BMW has consistently set the benchmark in automotive
-                    design. From iconic 3 Series to legendary M models, the brand honors its rich past while leading the
-                    future.</p>
-                <div class="tech-btn">HISTORY VIEW</div>
-            </div>
-        </div>
-    </section>
-    <!-- --- Development Timeline --- -->
-    <section class="timeline-section" id="innovation">
-        <div class="legacy-header" data-parallax="-0.2">
-            <h2
-                style="font-size: clamp(2rem, 5vw, 4rem); font-weight: 900; text-align: center; margin-bottom: 20px; text-transform: uppercase; letter-spacing: -3px; background: linear-gradient(180deg, #fff 30%, var(--bmw-blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 0 30px rgba(28, 105, 212, 0.2);">
-                A Century of Precision</h2>
-        </div>
-        <p
-            style="text-align: center; color: rgba(255,255,255,0.4); font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 100px;">
-            1916 — 2025 — BEYOND</p>
-        <div class="timeline-container">
-            <div class="timeline-line"></div>
-            <div class="timeline-energy-path"></div>
-
-            <div class="timeline-item">
-                <span class="item-count">01</span>
-                <div class="timeline-node"></div>
-                <div class="timeline-content">
-                    <span class="timeline-year">1916</span>
-                    <span class="era-marker">GENESIS</span>
-                    <h3>The Foundation</h3>
-                    <p>BMW is founded as Bayerische Motoren Werke AG, initially producing aircraft engines that set the
-                        standard for aviation engineering across the globe.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <span class="item-count">02</span>
-                <div class="timeline-node"></div>
-                <div class="timeline-content">
-                    <span class="timeline-year">1972</span>
-                    <span class="era-marker">PERFORMANCE</span>
-                    <h3>M Division Born</h3>
-                    <p>BMW Motorsport GmbH is established with just 35 employees. It would go on to create the most
-                        legendary driver-focused cars in history.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <span class="item-count">03</span>
-                <div class="timeline-node"></div>
-                <div class="timeline-content">
-                    <span class="timeline-year">2013</span>
-                    <span class="era-marker">INNOVATION i</span>
-                    <h3>Electric Evolution</h3>
-                    <p>The launch of the sub-brand BMW i marks a radical shift toward carbon-fiber architecture and
-                        sustainable high-performance luxury mobility.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <span class="item-count">04</span>
-                <div class="timeline-node"></div>
-                <div class="timeline-content">
-                    <span class="timeline-year">2025</span>
-                    <span class="era-marker">NEXT GEN</span>
-                    <h3>The Digital Cockpit</h3>
-                    <p>Introduction of the Neue Klasse. AI-driven interfaces and solid-state telemetry redefine the
-                        synergy between human and machine.</p>
+                    <span class="btn-tag">HERO CAR</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="dealers-section">
-        <p
-            style="color: rgba(255,255,255,0.3); font-size: 0.75rem; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 15px;">
-            WORLDWIDE PRESENCE</p>
-        <h2
-            style="font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; text-transform: uppercase; letter-spacing: -2px; background: linear-gradient(180deg, #fff 0%, #444 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0;">
-            Global Mastery Network</h2>
-        <div class="dealers-grid">
-            <div class="dealer-card flag-germany">
-                <svg style="width:32px;height:32px;margin-bottom:20px;color:var(--bmw-blue);filter:drop-shadow(0 0 8px var(--bmw-blue));"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                </svg>
-                <h3>BMW Munich HQ</h3>
-                <p style="font-size:0.75rem;letter-spacing:1px;color:rgba(255,255,255,0.3);margin-bottom:8px;">GERMANY,
-                    EUROPE</p>
-                <p>The iconic four-cylinder tower and the world-class BMW Welt experience center — where it all began.
-                </p>
-                <a href="#" class="dealer-btn">Visit Station</a>
-            </div>
-            <div class="dealer-card flag-egypt">
-                <svg style="width:32px;height:32px;margin-bottom:20px;color:var(--bmw-blue);filter:drop-shadow(0 0 8px var(--bmw-blue));"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                </svg>
-                <h3>BMW Cairo Pro</h3>
-                <p style="font-size:0.75rem;letter-spacing:1px;color:rgba(255,255,255,0.3);margin-bottom:8px;">CAIRO,
-                    EGYPT</p>
-                <p>Exclusive M-Power certified dealership providing premium service and high-performance modifications.
-                </p>
-                <a href="#" class="dealer-btn">Locate Showroom</a>
-            </div>
-            <div class="dealer-card flag-global">
-                <svg style="width:32px;height:32px;margin-bottom:20px;color:var(--m-red);filter:drop-shadow(0 0 8px var(--m-red));"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                </svg>
-                <h3>i-Performance Hub</h3>
-                <p style="font-size:0.75rem;letter-spacing:1px;color:rgba(255,255,255,0.3);margin-bottom:8px;">GLOBAL
-                    NETWORK</p>
-                <p>Specialized center for the full electric fleet and sustainable fast-charging infrastructure
-                    worldwide.</p>
-                <a href="#" class="dealer-btn">Find Station</a>
-            </div>
-        </div>
-    </section>
-
+    <!-- Footer -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg" alt="BMW Logo"
-                    style="width:55px;filter:brightness(1.5);margin-bottom:25px;">
-                <p>Sheer Driving Pleasure. Shaping the future of high-performance luxury mobility through precision
-                    engineering and AI innovation.</p>
-            </div>
-
-            <div class="footer-column">
-                <h4>Fleet</h4>
-                <ul>
-                    <li><a href="#">BMW M Series</a></li>
-                    <li><a href="#">BMW i Electric</a></li>
-                    <li><a href="#">BMW X Crossover</a></li>
-                    <li><a href="#">Luxury GT</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="#">Build & Price</a></li>
-                    <li><a href="#">Test Drive</a></li>
-                    <li><a href="#">Technical Support</a></li>
-                    <li><a href="#">BMW Financial</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h4>Connected</h4>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="Twitter">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="YouTube">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
-                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 BMW GLOBAL. ALL RIGHTS RESERVED. PRECISION ENGINEERED BY AG.</p>
-            <div class="legal-links">
-                <span style="margin-right: 20px;">DIGITAL PRIVACY</span>
-                <span>TERMS of TELEMETRY</span>
-            </div>
-        </div>
+        <p>&copy; 2024 <span>BMW</span> Experience. All rights reserved. | <span>Crafted with Performance</span></p>
     </footer>
 
-
     <script>
-        // === Hero Video & HUD Logic: Premium Behavior ===
-        const heroVideo = document.getElementById('hero-video');
-        const performanceHud = document.querySelector('.performance-hud');
-        const productInfo = document.querySelector('.product-info');
-        let hasLeft = false; // tracks if user scrolled away or changed tab
-        let hudShown = false;
-        let hudNumbersAnimated = false;
+        // Custom Cursor Logic
+        const customCursor = document.getElementById('custom-cursor');
+        let mouseX = 0;
+        let mouseY = 0;
 
-        // Function to reset video and HUD state when "leaving"
-        function handleLeave() {
-            hasLeft = true;
-            heroVideo.pause();
-            performanceHud.classList.remove('visible');
-            productInfo.classList.remove('visible');
-            hudShown = false;
-            hudNumbersAnimated = false;
-            // Clear values to prepare for re-animation
-            document.querySelectorAll('.hud-value').forEach(el => el.innerText = '0');
-        }
-
-        // 1. Replay on viewport leave & return
-        const videoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    handleLeave();
-                } else if (hasLeft) {
-                    // User came back from another section
-                    heroVideo.currentTime = 0;
-                    heroVideo.play();
-                    hasLeft = false;
-                }
-            });
-        }, { threshold: 0.3 });
-
-        videoObserver.observe(document.querySelector('.hero-section'));
-
-        // 2. Replay on tab-change (leaving and returning to page)
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                handleLeave();
-            } else {
-                // User returned to tab
-                heroVideo.currentTime = 0;
-                heroVideo.play();
-                hasLeft = false;
-            }
-        });
-
-        // 3. Reveal HUD 1 second before video ends
-        heroVideo.addEventListener('timeupdate', () => {
-            if (heroVideo.duration && !hudShown) {
-                const timeLeft = heroVideo.duration - heroVideo.currentTime;
-                // Specifically trigger 1 second before finish
-                if (timeLeft <= 1 && timeLeft > 0) {
-                    performanceHud.classList.add('visible');
-                    productInfo.classList.add('visible');
-                    hudShown = true;
-                    if (!hudNumbersAnimated) {
-                        hudNumbersAnimated = true;
-                        setTimeout(animateNumbers, 200); // Slight delay for smooth fade-in
-                    }
-                }
-            }
-        });
-
-        // HUD Counter Animation
-        // HUD Counter & Gauge Animation
-        function animateNumbers() {
-            const stats = document.querySelectorAll('[data-target]');
-            const speedPath = document.getElementById('speedGaugePath');
-            const powerPath = document.getElementById('powerGaugePath');
-
-            // Match CSS stroke-dasharray (450)
-            const pathLength = 450;
-
-            stats.forEach(el => {
-                const target = parseFloat(el.getAttribute('data-target'));
-                let current = 0;
-                const duration = 2000;
-                const stepTime = 30;
-                const increment = target / (duration / stepTime);
-
-                const updateNumber = () => {
-                    current += increment;
-                    if (current < target) {
-                        el.innerText = current.toFixed(target % 1 === 0 ? 0 : 1);
-                        setTimeout(updateNumber, stepTime);
-                    } else {
-                        el.innerText = target;
-                    }
-                };
-                updateNumber();
-
-                // Animate gauges based on values
-                const unitEl = el.parentElement.querySelector('.gauge-unit');
-                if (unitEl && unitEl.innerText.includes('KM/H')) {
-                    const maxSpeed = 350;
-                    const offset = pathLength - (target / maxSpeed) * pathLength;
-                    speedPath.style.strokeDashoffset = offset;
-                }
-
-                if (unitEl && unitEl.innerText.includes('KW')) {
-                    const maxPower = 500;
-                    const offset = pathLength - (target / maxPower) * pathLength;
-                    powerPath.style.strokeDashoffset = offset;
-                }
-            });
-        }
-        // Universal Parallax Engine
-        function handleParallax() {
-            const scrolled = window.pageYOffset;
-            const viewportCenter = window.innerHeight / 2;
-
-            // Target major elements for a layered depth effect (EXCLUDING cards for stability)
-            const parallaxItems = document.querySelectorAll('h2, h3, p, .timeline-item, .dealer-card, .footer-column, .tech-btn, .tag');
-
-            parallaxItems.forEach((el, index) => {
-                // Skip elements in the hero section to keep it stable
-                if (el.closest('.hero-section')) return;
-
-                // Assign a staggered speed if not manually set via data-parallax
-                let speed = parseFloat(el.getAttribute('data-parallax'));
-                if (isNaN(speed)) {
-                    // Staggering logic: headers move slower, paragraphs faster, even/odd slight variation
-                    if (el.tagName === 'H2') speed = -0.08;
-                    else if (el.tagName === 'H3') speed = -0.12;
-                    else if (el.tagName === 'P') speed = -0.05;
-                    else if (index % 2 === 0) speed = -0.1;
-                    else speed = -0.07;
-                }
-
-                const rect = el.getBoundingClientRect();
-                const elementCenter = rect.top + rect.height / 2;
-                const distance = elementCenter - viewportCenter;
-
-                const movement = distance * speed;
-
-                // Only apply parallax if the element is near the viewport to save performance
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    el.style.transform = `translate3d(0, ${movement}px, 0)`;
-                }
-            });
-        }
-
-        window.addEventListener('scroll', () => {
-            requestAnimationFrame(handleParallax);
-        }, { passive: true });
-
-        // Initialize parallax position
-        handleParallax();
-
-        // --- Custom Technical Cursor Logic ---
-        const cursor = document.getElementById('custom-cursor');
         document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            customCursor.style.left = mouseX + 'px';
+            customCursor.style.top = mouseY + 'px';
         });
 
-        const hoverableElements = document.querySelectorAll('a, button, .legacy-card, .card, .tech-card, .dealer-card');
-        hoverableElements.forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
-        });
-
-        // --- Scroll-Reactive Timeline Energy Path ---
-        window.addEventListener('scroll', () => {
-            const timeline = document.querySelector('.timeline-container');
-            const energyPath = document.querySelector('.timeline-energy-path');
-            const items = document.querySelectorAll('.timeline-item');
-
-            if (!timeline) return;
-
-            const rect = timeline.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-
-            // Calculate how much of the timeline is scrolled through
-            let scrollProgress = (viewportHeight / 2 - rect.top) / rect.height;
-            scrollProgress = Math.max(0, Math.min(1, scrollProgress));
-
-            energyPath.style.height = (scrollProgress * 100) + '%';
-
-            // Activate timeline nodes as energy passes them
-            items.forEach(item => {
-                const itemTop = item.getBoundingClientRect().top;
-                if (itemTop < viewportHeight / 2 + 50) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
+        // Hover effect on links and buttons
+        const hoverElements = document.querySelectorAll('a, button');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                customCursor.classList.add('hovering');
+            });
+            el.addEventListener('mouseleave', () => {
+                customCursor.classList.remove('hovering');
             });
         });
+
+        // HUD Animation on scroll
+        const performanceHUD = document.querySelector('.performance-hud');
+        const productInfo = document.querySelector('.product-info');
+
+        window.addEventListener('scroll', () => {
+            const heroSection = document.querySelector('.hero-section');
+            const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+            const scrolled = window.scrollY;
+
+            if (scrolled < heroBottom - window.innerHeight) {
+                performanceHUD.classList.add('visible');
+                productInfo.classList.add('visible');
+            } else {
+                performanceHUD.classList.remove('visible');
+                productInfo.classList.remove('visible');
+            }
+        });
+
+        // Trigger on load
+        window.dispatchEvent(new Event('scroll'));
+
+        // SVG Gauge Animation
+        function animateGauges() {
+            const pathLeft = document.querySelector('.path-fill-left');
+            const pathRight = document.querySelector('.path-fill-right');
+
+            if (pathLeft && pathRight) {
+                pathLeft.style.strokeDashoffset = '0';
+                pathRight.style.strokeDashoffset = '0';
+            }
+        }
+
+        setTimeout(animateGauges, 1000);
     </script>
 </body>
 
